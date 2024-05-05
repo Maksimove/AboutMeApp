@@ -1,29 +1,39 @@
-//
-//  PersonViewController.swift
-//  AboutMe
-//
-//  Created by fear on 04.05.2024.
-//
-
 import UIKit
 
-class PersonViewController: UIViewController {
+final class PersonViewController: UIViewController {
+    
+    @IBOutlet var image: UIImageView!
+    
+    @IBOutlet var name: UILabel!
+    @IBOutlet var surname: UILabel!
+    
+    @IBOutlet var company: UILabel!
+    @IBOutlet var post: UILabel!
+    
+    var imageOfPerson: UIImage!
+    
+    var personName: String!
+    var personSurname: String!
+    var personCompany: String!
+    var personPost: String!
+    var personFullName: String!
+    var personBio: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.addVerticalGradientLayer()
+        
+        image.image = imageOfPerson
+        image.layer.cornerRadius = image.frame.height / 2
+        
+        name.text = personName
+        surname.text = personSurname
+        company.text = personCompany
+        post.text = personPost
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let bioVC = segue.destination as? BioViewController else { return }
+        bioVC.personFullName = personFullName
+        bioVC.personBio = personBio
     }
-    */
-
 }

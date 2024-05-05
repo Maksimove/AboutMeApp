@@ -1,29 +1,18 @@
-//
-//  BioViewController.swift
-//  AboutMe
-//
-//  Created by fear on 04.05.2024.
-//
-
 import UIKit
 
-class BioViewController: UIViewController {
-
+final class BioViewController: UIViewController {
+    
+    @IBOutlet var fullName: UILabel!
+    @IBOutlet var biography: UILabel!
+    
+    var personFullName: String!
+    var personBio: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addVerticalGradientLayer()
 
-        // Do any additional setup after loading the view.
+        fullName.text = personFullName
+        biography.text = personBio
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
